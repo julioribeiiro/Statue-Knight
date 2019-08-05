@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sound_attack_hit.wav-29ceebe89a58d3dac42f8f81bd8a7318.sample"
+
+[deps]
+
+source_file="res://sounds/Sound_attack_hit.wav"
+dest_files=[ "res://.import/Sound_attack_hit.wav-29ceebe89a58d3dac42f8f81bd8a7318.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

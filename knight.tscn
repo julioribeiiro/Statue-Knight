@@ -1,0 +1,395 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://knight.gd" type="Script" id=1]
+[ext_resource path="res://imagens/Ambient Statue Knight_Cloud 1-2.png" type="Texture" id=2]
+[ext_resource path="res://imagens/Ambient Statue Knight_Cloud 2-2.png" type="Texture" id=3]
+[ext_resource path="res://imagens/Ambient Statue Knight_Moon.png" type="Texture" id=4]
+[ext_resource path="res://imagens/knight morto.png" type="Texture" id=5]
+[ext_resource path="res://imagens/knight  parado(1).png" type="Texture" id=6]
+[ext_resource path="res://imagens/knight ataque.png" type="Texture" id=7]
+[ext_resource path="res://imagens/estátua(1).png" type="Texture" id=8]
+[ext_resource path="res://imagens/knight recebendo ataque.png" type="Texture" id=9]
+[ext_resource path="res://imagens/knight andando 1(1).png" type="Texture" id=10]
+[ext_resource path="res://imagens/knight andando 3(1).png" type="Texture" id=11]
+[ext_resource path="res://imagens/Ambient Statue Knight_Status Bar Layout.png" type="Texture" id=12]
+[ext_resource path="res://imagens/Ambient Statue Knight_Status Bar Behind.png" type="Texture" id=13]
+[ext_resource path="res://imagens/Ambient Statue Knight_Statur Bar.png" type="Texture" id=14]
+[ext_resource path="res://imagens/menu final.png" type="Texture" id=15]
+[ext_resource path="res://imagens/Ambient Statue Knight logo low.png" type="Texture" id=16]
+[ext_resource path="res://sounds/Sound_attack_hit.wav" type="AudioStream" id=17]
+[ext_resource path="res://sounds/Sound_attack_deflect.wav" type="AudioStream" id=18]
+[ext_resource path="res://sounds/Sound_death_monster.wav" type="AudioStream" id=19]
+[ext_resource path="res://sounds/Sound_player_dead.wav" type="AudioStream" id=20]
+[ext_resource path="res://GameSounds.wav" type="AudioStream" id=21]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "morto",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "estatua",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "recebe_dano",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "walk",
+"speed": 3.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64, 64 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 64, 160 )
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 32.0
+height = 256.0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 64, 64 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "nuvem_2"
+length = 140.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("nuvem_2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 137.4, 140 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1504, -448 ), Vector2( -672, -448 ), Vector2( -743, -1077 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "nuvem"
+length = 200.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("nuvem_1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15.8, 200 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1600, -576 ), Vector2( 1536, -544 ), Vector2( -672, -576 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "nuvem"
+length = 200.0
+loop = true
+
+[sub_resource type="Animation" id=9]
+resource_name = "nuvem3"
+length = 200.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("nuvem_3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 74.3, 76, 77.3, 79.5, 200 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -736, -576 ), Vector2( -736, -1056 ), Vector2( 1654, -1056 ), Vector2( 1654, -576 ), Vector2( 672, -576 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "nuvem"
+length = 200.0
+loop = true
+
+[sub_resource type="Animation" id=11]
+resource_name = "nuvem3"
+length = 200.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("nuvem_3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4, 74.3, 76, 77.3, 79.5, 200 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 672, -576 ), Vector2( -736, -576 ), Vector2( -736, -1056 ), Vector2( 1654, -1056 ), Vector2( 1654, -576 ), Vector2( 672, -576 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "nuvem4"
+length = 200.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("nuvem_4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 59.7, 61, 63.1, 64.4, 200 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -32, -658 ), Vector2( -704, -448 ), Vector2( -704, -1056 ), Vector2( 1568, -1056 ), Vector2( 1568, -478 ), Vector2( -32, -478 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "fade_out"
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("comecar:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "fade_out"
+length = 2.0
+loop = true
+
+[sub_resource type="Animation" id=15]
+resource_name = "mostra_instru"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("texto_1:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.087, 1.0 ]
+}
+
+[node name="knight" type="KinematicBody2D"]
+position = Vector2( 544, 896 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="nuvem_1" type="Sprite" parent="."]
+position = Vector2( 1600, -576 )
+texture = ExtResource( 2 )
+
+[node name="nuvem_3" type="Sprite" parent="."]
+position = Vector2( 622.463, -576 )
+texture = ExtResource( 2 )
+
+[node name="nuvem_2" type="Sprite" parent="."]
+position = Vector2( 1426.66, -448 )
+texture = ExtResource( 3 )
+
+[node name="nuvem_4" type="Sprite" parent="."]
+position = Vector2( -32, -658 )
+texture = ExtResource( 3 )
+
+[node name="fundo" type="Sprite" parent="."]
+position = Vector2( 1120, -544 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="personagem" type="AnimatedSprite" parent="."]
+position = Vector2( -32, -32 )
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="hitbox_posicao" type="CollisionShape2D" parent="."]
+position = Vector2( 32, 0 )
+shape = SubResource( 2 )
+
+[node name="stamina_fundo" type="Sprite" parent="."]
+position = Vector2( 416, -800 )
+texture = ExtResource( 12 )
+offset = Vector2( 0, -7 )
+
+[node name="stamina_verde2" type="Sprite" parent="."]
+position = Vector2( -480, -807 )
+texture = ExtResource( 13 )
+offset = Vector2( 896, 0 )
+
+[node name="stamina_verde" type="Sprite" parent="."]
+position = Vector2( -480, -807 )
+texture = ExtResource( 14 )
+offset = Vector2( 896, 0 )
+
+[node name="menu_fundo" type="Sprite" parent="."]
+position = Vector2( 416, -511 )
+scale = Vector2( 5, 4 )
+texture = ExtResource( 15 )
+
+[node name="score_fundo" type="Sprite" parent="."]
+position = Vector2( -156, -700 )
+scale = Vector2( 2, 1 )
+texture = ExtResource( 15 )
+
+[node name="comecar" type="Label" parent="."]
+visible = false
+margin_left = 416.0
+margin_top = -343.0
+margin_right = 617.0
+margin_bottom = -329.0
+rect_scale = Vector2( 4.32161, 4.32161 )
+text = "Pressione Espaco para comecar"
+align = 1
+valign = 1
+
+[node name="stamina" type="Label" parent="."]
+margin_left = -716.0
+margin_top = -884.0
+margin_right = -515.0
+margin_bottom = -870.0
+rect_scale = Vector2( 3.51663, 3.51663 )
+text = "Stamina"
+align = 1
+valign = 1
+
+[node name="texto_1" type="Label" parent="."]
+margin_left = -413.0
+margin_top = -747.0
+margin_right = -208.0
+margin_bottom = -665.0
+rect_scale = Vector2( 3.51663, 3.51663 )
+text = "		INSTRUCOES:
+Segure Espaco para
+transformar-se em estatua.
+Cuidado pois a forma de estatua
+gasta stamina.
+O monstro ataca em ritmo,
+se defenda como estatua."
+align = 1
+valign = 1
+
+[node name="hit" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="hitbox_statue" type="CollisionShape2D" parent="hit"]
+position = Vector2( 0, -32 )
+shape = SubResource( 3 )
+
+[node name="hitbox_ataque" type="CollisionShape2D" parent="hit"]
+position = Vector2( 96, 0 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="dano" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="hitbox_toma_dano" type="CollisionShape2D" parent="dano"]
+shape = SubResource( 5 )
+
+[node name="anim_nuvem_1" type="AnimationPlayer" parent="."]
+autoplay = "nuvem_2"
+anims/nuvem_2 = SubResource( 6 )
+
+[node name="anim_nuvem_2" type="AnimationPlayer" parent="."]
+autoplay = "nuvem"
+anims/nuvem = SubResource( 7 )
+
+[node name="anim_nuvem_3" type="AnimationPlayer" parent="."]
+autoplay = "nuvem3"
+anims/nuvem = SubResource( 8 )
+anims/nuvem3 = SubResource( 9 )
+
+[node name="anim_nuvem_4" type="AnimationPlayer" parent="."]
+autoplay = "nuvem4"
+anims/nuvem = SubResource( 10 )
+anims/nuvem3 = SubResource( 11 )
+anims/nuvem4 = SubResource( 12 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 416, -352 )
+current = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="perdeu" type="Label" parent="."]
+margin_left = -32.0
+margin_top = -704.0
+margin_right = 183.0
+margin_bottom = -673.0
+rect_scale = Vector2( 4.32161, 4.32161 )
+text = "Voce perdeu
+Pressione espaco para recomecar"
+align = 1
+valign = 1
+
+[node name="Logo" type="Sprite" parent="."]
+position = Vector2( 837, -630 )
+texture = ExtResource( 16 )
+
+[node name="Score" type="Label" parent="."]
+margin_left = -479.0
+margin_top = -736.0
+margin_right = -420.0
+margin_bottom = -722.0
+rect_scale = Vector2( 4.03997, 4.03997 )
+text = "Score: 000"
+
+[node name="hit_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
+[node name="deflect_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="monstro_morre_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+
+[node name="som_morte" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
+[node name="som_fundo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -16.66
+
+[node name="press_start" type="AnimationPlayer" parent="."]
+autoplay = "fade_out"
+anims/fade_out = SubResource( 13 )
+
+[node name="instrucoes" type="AnimationPlayer" parent="."]
+autoplay = "mostra_instru"
+anims/fade_out = SubResource( 14 )
+anims/mostra_instru = SubResource( 15 )
+[connection signal="area_entered" from="hit" to="." method="_on_hit_area_entered"]
+[connection signal="area_entered" from="dano" to="." method="_on_dano_area_entered"]
